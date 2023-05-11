@@ -6,14 +6,14 @@ import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ReactShadowNode
 import com.facebook.react.uimanager.ViewManager
-import com.youtubeplayer.calendar.CounterModule
+import com.youtubeplayer.modules.YouTubePlayer
 
 class AppNativePackage: ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): MutableList<NativeModule> {
-        return listOf(CounterModule(reactContext)).toMutableList()
+        return mutableListOf()
     }
 
-    override fun createViewManagers(reactContext: ReactApplicationContext): MutableList<ViewManager<View, ReactShadowNode<*>>> {
-        return mutableListOf()
+    override fun createViewManagers(reactContext: ReactApplicationContext): MutableList<ViewManager<out View, out ReactShadowNode<*>>> {
+        return mutableListOf(YouTubePlayer())
     }
 }
